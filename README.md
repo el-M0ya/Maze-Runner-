@@ -3,6 +3,17 @@
 ¡Bienvenido al repositorio del proyecto **JailBreak**! Este es un juego desarrollado en Unity utilizando C#. En este juego, tu objetivo es explorar un laberinto, encontrar una llave y escapar a través de la puerta antes de que se agote el tiempo. A continuación, encontrarás las instrucciones para configurar, jugar y entender la arquitectura del proyecto.
 
 ---
+## ⚠️Advertencia ⚠️
+
+ Para disfrutar al máximo debe tener conocimientos básicos acerca de la música urbana cubana actual(Reparto).
+
+___
+
+## Lore
+
+JailBreak es un juego por turnos en el cual se evidencia "la realidad" de una cárcel en una isla espacial donde llego la cultura "Repa" para quedarse. La vida de los prisioneros da un giro inesperado al chocar con los problemas energéticos espaciales, abriéndose las celdas de la cárcel y llegando así el momento preciso para encontrar su libertad.
+
+___
 
 ## Instrucciones de Uso y Desarrollo
 
@@ -12,6 +23,8 @@ Para ejecutar y desarrollar este proyecto, necesitarás lo siguiente:
 - **Unity 2022 o superior**: El proyecto está desarrollado en Unity versión 2022 o superior. Asegúrate de tener esta versión instalada a través de Unity Hub.
 
 ### Configuración del Proyecto
+Si desea ver el proyecto como desarrollador:
+
 1. **Descarga los archivos**: Clona este repositorio o descarga los archivos como un archivo ZIP.
 2. **Crea una carpeta**: Coloca los archivos descargados en una carpeta en tu computadora.
 3. **Abre el proyecto en Unity**:
@@ -19,6 +32,11 @@ Para ejecutar y desarrollar este proyecto, necesitarás lo siguiente:
    - Selecciona la opción "Add" (Añadir).
    - Navega hasta la carpeta donde colocaste los archivos del proyecto y selecciónala.
    - Unity Hub abrirá el proyecto en la versión de Unity correspondiente.
+
+Si desea jugarlo solamente:
+1. **Descargue los archivos**: Clona este repositorio o descarga los archivos como un archivo ZIP.
+2. **Abra el ejecutable**: Abra la carpeta "JailBreak" y ejecute "JailBreak.exe"
+
 
 ### Ejecutar el Proyecto
 1. **Abre la escena principal**: En el panel "Project" (Proyecto), navega hasta la carpeta `Scenes` y haz doble clic en la escena principal (por ejemplo, `MainScene.unity`).
