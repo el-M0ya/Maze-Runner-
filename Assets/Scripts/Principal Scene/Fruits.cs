@@ -10,11 +10,9 @@ public class Fruits : MonoBehaviour
         if(name == "COCONUT(Clone)")
         {
             TurnManager.Instance._currentplayer._Time += 1;
-             AudioManager.Instance.Play_Audio(TurnManager.Instance.Jama);
         }
         if(name == "Guayaba(Clone)" && TurnManager.Instance._currentplayer.Life < TurnManager.Instance._currentplayer.Max_Life)
         {
-            AudioManager.Instance.Play_Audio(TurnManager.Instance.Jama);
             TurnManager.Instance._currentplayer.Life += 1;
             for(int i = 0 ; i < 10 ; i++)
         {
@@ -27,12 +25,10 @@ public class Fruits : MonoBehaviour
         {
             TurnManager.Instance._currentplayer.Speed += 1.5f;
             TurnManager.Instance._currentplayer.Initial_Speed += 1.5f;
-             AudioManager.Instance.Play_Audio(TurnManager.Instance.Jama);
         }
         if(name == "Carrot(Clone)")
         {
             TurnManager.Instance._currentplayer.CameraSize += 1;
-             AudioManager.Instance.Play_Audio(TurnManager.Instance.Jama);
         }
         if(name == "GoldenGuayaba(Clone)" && TurnManager.Instance._currentplayer.Max_Life < 10)
         {
@@ -59,7 +55,8 @@ public class Fruits : MonoBehaviour
         }
         if( name != "Key(Clone)" &&  name != "Bomb(Clone)")
         {
-          Destroy(gameObject);  
+          Destroy(gameObject);
+          AudioManager.Instance.Play_Audio(TurnManager.Instance.Jama);  
         }
         
         
