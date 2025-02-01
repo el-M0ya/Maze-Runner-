@@ -14,13 +14,14 @@ public class Fruits : MonoBehaviour
         }
         if(name == "Guayaba(Clone)" && TurnManager.Instance._currentplayer.Life < TurnManager.Instance._currentplayer.Max_Life)
         {
+            AudioManager.Instance.Play_Audio(TurnManager.Instance.Jama);
             TurnManager.Instance._currentplayer.Life += 1;
             for(int i = 0 ; i < 10 ; i++)
         {
             if(i < TurnManager.Instance._currentplayer.Life)   UI.Instance.Life_On(i);
             else UI.Instance.Life_Off(i);
         }
-             AudioManager.Instance.Play_Audio(TurnManager.Instance.Jama);
+
         }
         if(name == "Bistec(Clone)")
         {
@@ -56,7 +57,7 @@ public class Fruits : MonoBehaviour
              AudioManager.Instance.Play_Audio(TurnManager.Instance.Bomb);
              Destroy(gameObject);
         }
-        if( name != "Key(Clone)" &&  name == "Bomb(Clone)")
+        if( name != "Key(Clone)" &&  name != "Bomb(Clone)")
         {
           Destroy(gameObject);  
         }
