@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1753759735
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -53381673, guid: fead899dd8e2183469d01ee71cecff7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -119,25 +119,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899ccc75872c6ac40b8fc0a1268ae1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Can_Move: 0
-  onMoveFinished:
-    m_PersistentCalls:
-      m_Calls: []
-  onTrap1:
-    m_PersistentCalls:
-      m_Calls: []
-  onTrap2:
-    m_PersistentCalls:
-      m_Calls: []
-  onMap:
-    m_PersistentCalls:
-      m_Calls: []
+  AY_AY_AY: {fileID: 0}
+  Imposible: {fileID: 0}
+  PlayerNumber: 0
+  Hability_Description: 
+  Is_Key: 0
+  Skill: 0
+  Skill_Sprite: {fileID: 0}
   _Time: 5
-  Is_Move: 0
+  CameraSize: 0
   Max_Life: 1
-  Life: 1
+  _currentCoolDown: 0
   CoolDown: 2
-  Speed: 14
+  Initial_Speed: 0
 --- !u!61 &7396420820183866708
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 301325415666264910, guid: f2cab90914df47f4fb9e0aaf541b9dfb, type: 3}
       propertyPath: m_Name
-      value: Drunk
+      value: Drunk Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2198239681502681962, guid: f2cab90914df47f4fb9e0aaf541b9dfb, type: 3}
       propertyPath: m_Controller
@@ -36,6 +36,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -4055055, guid: 90b6d54e68af14046bde181ef2cd0edd, type: 3}
+    - target: {fileID: 3293942358461017660, guid: f2cab90914df47f4fb9e0aaf541b9dfb, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293942358461017660, guid: f2cab90914df47f4fb9e0aaf541b9dfb, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1753759735
+      objectReference: {fileID: 0}
     - target: {fileID: 3293942358461017660, guid: f2cab90914df47f4fb9e0aaf541b9dfb, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
