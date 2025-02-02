@@ -2,11 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Players
-{
-    Jutia , Repa , Vagabund , Drunk
-}
-
 public class ListaDePlayers : MonoBehaviour
 {
     public List<Character> Players_Disponibles = new List<Character>();
@@ -21,6 +16,11 @@ public class ListaDePlayers : MonoBehaviour
         if(Players.Count == 0)
         {
             UnityEngine.Debug.LogError("No hay personajes para jugar");
+        }
+
+        for (int i = 0; i < Players.Count; i++)
+        {
+            Players[i].Team = SelectPlayer.Color[i];
         }
 
          return Players;

@@ -6,8 +6,16 @@ using UnityEngine;
 public class SelectPlayer : MonoBehaviour
 {
     [NonSerialized]
-    public static List<Character> PlayersToPlay = new List<Character>();
-    public static List<int> intPlayers = new List<int>();
+    public static List<Character> PlayersToPlay;
+    public static List<int> intPlayers ;
+    public static List<int> Color;
+
+    private void Start()
+    {
+        PlayersToPlay = new List<Character>();
+        intPlayers = new List<int>();
+        Color = new List<int>();
+    }
 
 
     public void Add()
@@ -15,6 +23,7 @@ public class SelectPlayer : MonoBehaviour
         ChangeCharacter.Instance.ListPlayers[ChangeCharacter.Instance._playerindex].gameObject.SetActive(false);
         PlayersToPlay.Add(ChangeCharacter.Instance.ListPlayers[ChangeCharacter.Instance._playerindex]);
         intPlayers.Add(ChangeCharacter.Instance.ListPlayers[ChangeCharacter.Instance._playerindex].PlayerNumber);
+        Color.Add(ChangeTeam._colorindex);
         ChangeCharacter.Instance.ListPlayers.Remove(ChangeCharacter.Instance.ListPlayers[ChangeCharacter.Instance._playerindex]);
 
         if(ChangeCharacter.Instance._playerindex == ChangeCharacter.Instance.ListPlayers.Count) ChangeCharacter.Instance._playerindex -= 1;
@@ -28,6 +37,7 @@ public class SelectPlayer : MonoBehaviour
         ChangeCharacter.Instance.ListPlayers.Add(PlayersToPlay[PlayersToPlay.Count - 1]);
         intPlayers.RemoveAt(intPlayers.Count-1);
         PlayersToPlay.Remove(PlayersToPlay[PlayersToPlay.Count - 1]);
+        Color.Remove(Color[Color.Count - 1]);
         ChangeCharacter.Instance._playerindex = ChangeCharacter.Instance.ListPlayers.Count - 1;
         ChangeCharacter.Instance.Show();
     }

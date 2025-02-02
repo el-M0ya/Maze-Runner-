@@ -24,6 +24,7 @@ public class TurnManager : MonoBehaviour
     public GameObject MusicBack;
     public GameObject MusicRepa;
     public Start_Turn start_Turn;
+
     [Header("Personajes y habilidades")]
     public List<Skills> skills = new List<Skills>();
     public List<GameObject> Skill_UI = new List<GameObject>();
@@ -53,6 +54,7 @@ public class TurnManager : MonoBehaviour
     [Header("Dimensiones")]
     public int high ;
     public int lenght;
+
     [Header("Bonificaciones")]
     public GameObject COCONUT;
     public GameObject Carrot;
@@ -61,10 +63,14 @@ public class TurnManager : MonoBehaviour
     public GameObject GoldenGuayaba;
     public GameObject Key;
     public GameObject KidBomb;
+
     [NonSerialized]
-    public GameObject Fruit;
+    public List<GameObject> Objects = new List<GameObject>();
     private System.Random random = new System.Random();
     public ListaDePlayers listaDePlayers;
+    public List<GameObject> listaDePlayersDisponibles;
+    [NonSerialized]
+    public int Round = 1;
 
     public static TurnManager Instance{get; private set;}
     // Awake is called before Start
@@ -94,12 +100,11 @@ public class TurnManager : MonoBehaviour
             enabled = false;
             return;
         }
-        // Cada jugador conserva su posicion inicial y no tiene cooldown
-        for(int i = 0 ; i < players.Count ; i++)
+        // Cada jugador conserva su posicion inicial 
+        foreach (Character character in players)
         {
-            players[i].puntomov = players[i].transform.position;
-            players[i]._currentCoolDown = 0;
-        }
+            character.puntomov = character.transform.position;
+        }     
         // Vidas no se muestren al principio
         for(int i = 0 ; i < 10 ; i++)
         {
@@ -112,7 +117,7 @@ public class TurnManager : MonoBehaviour
     public void Generar_Mapa()
     {
         Lab = Metodos.Generar_Array(high , lenght);  
-        tilemap.ClearAllTiles();
+        Clean_Map();
         int Players = players.Count;
         while(Players > 0)
         {
@@ -132,6 +137,15 @@ public class TurnManager : MonoBehaviour
     public void Clean_Map()
     {
         tilemap.ClearAllTiles();
+        UnityEngine.Debug.Log(Objects.Count);
+        foreach (GameObject obj in Objects)
+        {
+            DestroyImmediate(obj);
+        }
+        foreach (GameObject gameObject in listaDePlayersDisponibles)
+        {
+            gameObject.transform.localPosition = new Vector3(-5 , -5);
+        }
          
         
     }
@@ -308,22 +322,22 @@ public class TurnManager : MonoBehaviour
             if(_currentplayersindex >= players.Count)
             {
               _currentplayersindex = 0;
+              Round += 1;
             }
 
             StartNewTurn();
         
         
     }
-    // Termiba el juego
-    public void EndGame()
-    {
-        UnityEngine.Debug.Log("El juego ha terminado");
-    }
+
    // Genera las frutas
     public void Gen_Fruits(int[,] Lab)
     {
+        UnityEngine.Debug.Log("Fruta");
+        GameObject Fruit ;
         for(int i = 1 ; i < Lab.GetLength(0) ; i++ )
         {
+            
             for(int j = 1 ; j < Lab.GetLength(1) ; j++ )
             {
                 if(Lab[i , j] == (int)Metodos.Tile.T_Chest) 
@@ -332,19 +346,24 @@ public class TurnManager : MonoBehaviour
                     switch(aleatory)
                     {
                         case 1:
-                        Fruit = Instantiate(Carrot , new Vector3(i , j) , new Quaternion());
+                        Fruit = Instantiate(Carrot , new Vector3(i , j) , Quaternion.identity);
+                        Objects.Add(Fruit);
                         break;
                         case 2:
-                        Fruit = Instantiate(GoldenGuayaba , new Vector3(i , j) , new Quaternion());
+                        Fruit = Instantiate(GoldenGuayaba , new Vector3(i , j) , Quaternion.identity);
+                        Objects.Add(Fruit);
                         break;
                         case 3:case 4:
-                        Fruit = Instantiate(COCONUT , new Vector3(i , j) , new Quaternion());
+                        Fruit = Instantiate(COCONUT , new Vector3(i , j) , Quaternion.identity);
+                        Objects.Add(Fruit);
                         break;
                         case 5: case 6: case 7:
-                        Fruit = Instantiate(Guayaba , new Vector3(i , j) , new Quaternion());
+                        Fruit = Instantiate(Guayaba , new Vector3(i , j) , Quaternion.identity);
+                        Objects.Add(Fruit);
                         break;
                         case 8: case 9: case 10:
-                        Fruit = Instantiate(Bistec , new Vector3(i , j) , new Quaternion());
+                        Fruit = Instantiate(Bistec , new Vector3(i , j) , Quaternion.identity);
+                        Objects.Add(Fruit);
                         break;
 
                     }
@@ -354,6 +373,7 @@ public class TurnManager : MonoBehaviour
     }
     public void Gen_Keys(int[,] Lab)
     {
+        GameObject KeyObj;
         int cantidad = players.Count;
         while (cantidad > 0)
         {
@@ -361,7 +381,8 @@ public class TurnManager : MonoBehaviour
             int j = UnityEngine.Random.Range(1, Lab.GetLength(1) - 2);
             if (Lab[i, j] == (int)Metodos.Tile.T_Way)
             {
-                Fruit = Instantiate(Key , new Vector3(i , j) , new Quaternion());
+                KeyObj = Instantiate(Key , new Vector3(i , j) , Quaternion.identity);
+                Objects.Add(KeyObj);
                 cantidad--;
             }
 

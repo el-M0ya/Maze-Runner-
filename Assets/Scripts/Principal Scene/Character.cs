@@ -9,8 +9,8 @@ public class Character : MonoBehaviour
     public AudioClip AY_AY_AY;
     public AudioClip Imposible;
 
-
-    int Team = -1;
+    [NonSerialized]
+    public int Team = -1;
     public int PlayerNumber;
     public string Hability_Description;
     public bool Is_Key = false;
@@ -71,7 +71,6 @@ public class Character : MonoBehaviour
     public int Max_Life;
     [NonSerialized]
     public int Life;
-    [NonSerialized]
     public int _currentCoolDown;
     public int CoolDown;
     [NonSerialized]
@@ -84,7 +83,6 @@ public class Character : MonoBehaviour
         Lab = TurnManager.Instance.Lab;
         animator.SetBool("Is_Running", false);
         Speed = Initial_Speed;
-        _currentCoolDown = CoolDown;
     }
     void Update()
     {

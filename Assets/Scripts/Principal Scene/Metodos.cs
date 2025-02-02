@@ -200,7 +200,6 @@ public class Metodos
 
         System.Random random = new System.Random();
         int Position = random.Next(1, 5);
-        Debug.Log(Position);
         
         // 1 ---> Izquierda
         // 2 ---> Derecha
@@ -250,7 +249,6 @@ public class Metodos
             }
             else j = random.Next(0 , Lab.GetLength(1));
 
-            Debug.Log($"{i} , {j}");
             
             if(Lab[i , j] == (int)Tile.T_Way)
             {
@@ -259,11 +257,21 @@ public class Metodos
                     if(j == 1) 
                     {
                         if (Lab[i , 0] == (int)Tile.T_Pure_Wall) 
+                        {
                             Lab[i , 0] = that;  
+                            Debug.Log($"{i} , 0");
+                        }
+                        else continue;
+                            
                     }
                     
                     else  if(Lab[i , j+1] == (int)Tile.T_Pure_Wall)
-                             Lab[i , j+1] = that ;
+                    {
+                        Lab[i , j+1] = that ;
+                        Debug.Log($"{i} , {j + 1}");
+                    }
+                    else continue;
+ 
                     return;
                 }
                 else
@@ -271,14 +279,24 @@ public class Metodos
                     if(i == 1)
                     {
                        if(Lab[0 , j] == (int)Tile.T_Pure_Wall)
-                          Lab[0 , j] = that;
+                       {
+                        Lab[0 , j] = that;
+                        Debug.Log($"0 , {j}");
+                       }
+                       else continue;
+                          
                     } 
                     else if(Lab[i + 1 , j] == (int)Tile.T_Pure_Wall) 
-                            Lab[i + 1 , j] = that;
+                    {
+                        Lab[i + 1 , j] = that;
+                        Debug.Log($"{i + 1} , {j}");
+                    }
+                    else continue;
+
                     return;
                 }
             }
-            else Count++;
+            Count++;
         }
         Gen_Special_Limit(Lab , that);
     }

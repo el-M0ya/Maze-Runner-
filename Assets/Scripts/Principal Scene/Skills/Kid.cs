@@ -11,7 +11,8 @@ public class Kid : Skills
     {
         AudioManager.Instance.Play_Audio(TurnManager.Instance.KidLaugh);
         Vector3 Position = TurnManager.Instance._currentplayer.transform.position;
-        TurnManager.Instance.Fruit = Instantiate(TurnManager.Instance.KidBomb , Position , new Quaternion());
+        GameObject Bomb = Instantiate(TurnManager.Instance.KidBomb , Position , Quaternion.identity);
+        TurnManager.Instance.Objects.Add(Bomb);
         
     }
 }

@@ -14,6 +14,8 @@ public class Fruits : MonoBehaviour
         if(name == "Guayaba(Clone)" && TurnManager.Instance._currentplayer.Life < TurnManager.Instance._currentplayer.Max_Life)
         {
             TurnManager.Instance._currentplayer.Life += 1;
+            
+            //Mostrar vidas
             for(int i = 0 ; i < 10 ; i++)
         {
             if(i < TurnManager.Instance._currentplayer.Life)   UI.Instance.Life_On(i);
@@ -50,8 +52,16 @@ public class Fruits : MonoBehaviour
         {
             TurnManager.Instance._currentplayer.Life -= 3;
             if(TurnManager.Instance._currentplayer.Life < 0) TurnManager.Instance._currentplayer.Life = 0;
-             AudioManager.Instance.Play_Audio(TurnManager.Instance.Bomb);
-             Destroy(gameObject);
+
+            // Mostrar vidas
+            for(int i = 0 ; i < 10 ; i++)
+        {
+            if(i < TurnManager.Instance._currentplayer.Life)   UI.Instance.Life_On(i);
+            else UI.Instance.Life_Off(i);
+        }
+
+            AudioManager.Instance.Play_Audio(TurnManager.Instance.Bomb);
+            Destroy(gameObject);
         }
         if( name != "Key(Clone)" &&  name != "Bomb(Clone)")
         {
