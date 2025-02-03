@@ -19,6 +19,11 @@ public class Winner : MonoBehaviour
         }
         
         int Team = TurnManager.Instance._currentplayer.Team;
+        if(Team == 0)
+        {
+            characters[TurnManager.Instance._currentplayer.PlayerNumber].gameObject.SetActive(true);
+            return;
+        } 
         bool[] Winners = new bool[5];
         
         for (int i = 0; i < TurnManager.Instance.players.Count; i++)
